@@ -13,6 +13,7 @@ class CalendarView: UIView {
         super.init(frame: frame)
         
         setupViews()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
