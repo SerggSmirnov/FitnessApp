@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = #colorLiteral(red: 0.8044065833, green: 0.8044064641, blue: 0.8044064641, alpha: 1)
+        imageView.backgroundColor = .specialLightBrown
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 5
         imageView.layer.cornerRadius = 50
@@ -22,18 +22,22 @@ class MainViewController: UIViewController {
     private let userNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Your name"
-    
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.font = .robotoMedium24()
+        label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let addWorkoutButton: UIButton = {
+    private lazy var addWorkoutButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.8392156863, blue: 0.3568627451, alpha: 1)
+        button.backgroundColor = .specialYellow
         button.layer.cornerRadius = 10
         button.setTitle("Add workout", for: .normal)
         button.setImage(UIImage(named: "plus"), for: .normal)
-        button.tintColor = #colorLiteral(red: 0.1411764706, green: 0.2941176471, blue: 0.262745098, alpha: 1)
+        button.tintColor = .specialDarkGreen
+        button.titleLabel?.font = .robotoMedium12()
         button.imageEdgeInsets = .init(top: 0,
                                        left: 20,
                                        bottom: 15,
@@ -42,10 +46,15 @@ class MainViewController: UIViewController {
                                        left: -40,
                                        bottom: 0,
                                        right: 0)
-        
+        button.addShadowOnView()
+        button.addTarget(self, action: #selector(addWorkoutButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc private func addWorkoutButtonTapped() {
+        print("addWorkoutButtonTapped")
+    }
     
     private let calendarView = CalendarView()
     
@@ -59,7 +68,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = #colorLiteral(red: 0.9532985091, green: 0.9427116513, blue: 0.9085384011, alpha: 1)
+        view.backgroundColor = .specialBackground
         
         view.addSubview(calendarView)
         view.addSubview(userPhotoImageView)
@@ -70,6 +79,8 @@ class MainViewController: UIViewController {
 
 
 }
+
+//MARK: - Constraints
 
 extension MainViewController {
     

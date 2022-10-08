@@ -20,10 +20,11 @@ class WeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let weatherLabel: UILabel = {
+    private let weatherStatusLabel: UILabel = {
         let label = UILabel()
         label.text = "Sunny"
-        
+        label.textColor = .specialGray
+        label.font = .robotoMedium18()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -31,9 +32,9 @@ class WeatherView: UIView {
     private let weatherDiscriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Nice weather to workout outside"
-        label.textColor = #colorLiteral(red: 0.7607843137, green: 0.7607843137, blue: 0.7607843137, alpha: 1)
         label.numberOfLines = 2
-        
+        label.textColor = .specialGray
+        label.font = .robotoMedium14()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -47,12 +48,12 @@ class WeatherView: UIView {
     }()
     
     private func setupViews() {
-        self.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        self.backgroundColor = .specialBackground
         self.layer.cornerRadius = 10
-        
         self.translatesAutoresizingMaskIntoConstraints = false
+        addShadowOnView()
         
-        self.addSubview(weatherLabel)
+        self.addSubview(weatherStatusLabel)
         self.addSubview(weatherDiscriptionLabel)
         self.addSubview(weatherLogoImageView)
     }
@@ -62,11 +63,11 @@ extension WeatherView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            weatherLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            weatherLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            weatherLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -82),
+            weatherStatusLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            weatherStatusLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            weatherStatusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -82),
             
-            weatherDiscriptionLabel.topAnchor.constraint(equalTo: weatherLabel.bottomAnchor, constant: 5),
+            weatherDiscriptionLabel.topAnchor.constraint(equalTo: weatherStatusLabel.bottomAnchor, constant: 5),
             weatherDiscriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             weatherDiscriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -82),
             
