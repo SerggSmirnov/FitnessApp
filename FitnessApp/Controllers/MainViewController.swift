@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .specialLightBrown
+        imageView.backgroundColor = .specialLine
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 5
         imageView.layer.cornerRadius = 50
