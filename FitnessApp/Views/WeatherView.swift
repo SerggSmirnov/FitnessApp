@@ -48,7 +48,7 @@ class WeatherView: UIView {
     }()
     
     private func setupViews() {
-        self.backgroundColor = .specialBackground
+        self.backgroundColor = .white
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
         addShadowOnView()
