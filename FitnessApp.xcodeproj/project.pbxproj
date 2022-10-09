@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501293F128F2EEEF00A24EA0 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501293F028F2EEEF00A24EA0 /* StatisticsViewController.swift */; };
+		501293F328F2F80E00A24EA0 /* StatisticsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501293F228F2F80E00A24EA0 /* StatisticsTableView.swift */; };
+		501293F528F33DF800A24EA0 /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501293F428F33DF700A24EA0 /* StatisticsTableViewCell.swift */; };
 		509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D492E28EC96B10052A8F2 /* AppDelegate.swift */; };
 		509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493028EC96B10052A8F2 /* SceneDelegate.swift */; };
 		509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493228EC96B10052A8F2 /* MainViewController.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		501293F028F2EEEF00A24EA0 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		501293F228F2F80E00A24EA0 /* StatisticsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableView.swift; sourceTree = "<group>"; };
+		501293F428F33DF700A24EA0 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		509D492B28EC96B10052A8F2 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509D492E28EC96B10052A8F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509D493028EC96B10052A8F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +82,6 @@
 		509D492D28EC96B10052A8F2 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
-				50EC508028F2DF8C00559577 /* StatisticModule */,
 				509D494228EC991D0052A8F2 /* Application */,
 				509D494428EC9B430052A8F2 /* Model */,
 				509D494528EC9B5F0052A8F2 /* Views */,
@@ -121,6 +126,7 @@
 				509D494728ECAA800052A8F2 /* CalendarView.swift */,
 				50EC503E28ECBB3400559577 /* WeatherView.swift */,
 				50EC507A28F2B44400559577 /* WorkoutTableView.swift */,
+				501293F228F2F80E00A24EA0 /* StatisticsTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				509D493228EC96B10052A8F2 /* MainViewController.swift */,
+				501293F028F2EEEF00A24EA0 /* StatisticsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,15 +173,9 @@
 			children = (
 				50EC507828F1FF2700559577 /* CalendarCollectionViewCell.swift */,
 				50EC507C28F2BD2900559577 /* WorkoutTableViewCell.swift */,
+				501293F428F33DF700A24EA0 /* StatisticsTableViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		50EC508028F2DF8C00559577 /* StatisticModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StatisticModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,13 +252,16 @@
 			files = (
 				50EC503F28ECBB3400559577 /* WeatherView.swift in Sources */,
 				50EC507428F1D57D00559577 /* UIFont + Extensions.swift in Sources */,
+				501293F328F2F80E00A24EA0 /* StatisticsTableView.swift in Sources */,
 				509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */,
 				509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */,
 				50EC507D28F2BD2900559577 /* WorkoutTableViewCell.swift in Sources */,
 				50EC507B28F2B44400559577 /* WorkoutTableView.swift in Sources */,
 				509D494828ECAA800052A8F2 /* CalendarView.swift in Sources */,
 				50EC507F28F2C06000559577 /* UIStackView + Extensions.swift in Sources */,
+				501293F128F2EEEF00A24EA0 /* StatisticsViewController.swift in Sources */,
 				50EC507628F1D5A800559577 /* UIColor + Extensions.swift in Sources */,
+				501293F528F33DF800A24EA0 /* StatisticsTableViewCell.swift in Sources */,
 				50EC507228F1BA0B00559577 /* UIView + Extensions.swift in Sources */,
 				509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */,
 				50EC507928F1FF2700559577 /* CalendarCollectionViewCell.swift in Sources */,

@@ -105,6 +105,7 @@ class WorkoutTableViewCell: UITableViewCell {
         
         addSubview(labelsStackView)
         contentView.addSubview(startButton)
+        addShadowOnView()
     }
 }
 
