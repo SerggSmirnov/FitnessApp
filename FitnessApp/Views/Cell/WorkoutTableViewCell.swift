@@ -116,10 +116,10 @@ extension WorkoutTableViewCell {
     private func setConstraints() {
         
         NSLayoutConstraint.activate([
-            backgroundCell.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            backgroundCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            backgroundCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            backgroundCell.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+            backgroundCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            backgroundCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            backgroundCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            backgroundCell.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
 
             workoutBackgroundView.centerYAnchor.constraint(equalTo: backgroundCell.centerYAnchor),
             workoutBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

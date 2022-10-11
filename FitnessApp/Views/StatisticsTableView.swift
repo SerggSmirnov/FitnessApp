@@ -21,7 +21,7 @@ class StatisticsTableView: UITableView {
     }
     
     private func setupViews() {
-        self.backgroundColor = .none //CHANGE!!!!
+        self.backgroundColor = .none
         self.separatorStyle = .none
         self.bounces = false
         self.showsVerticalScrollIndicator = false
@@ -62,6 +62,6 @@ extension StatisticsTableView: UITableViewDataSource {
 extension StatisticsTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        74
+        70
     }
 }
