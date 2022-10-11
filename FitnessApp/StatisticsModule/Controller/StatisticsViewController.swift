@@ -20,7 +20,6 @@ class StatisticsViewController: UIViewController {
     private let statisticsLabel: UILabel = {
         let label = UILabel()
         label.text = "STATISTICS"
-        
         label.font = .robotoMedium24()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,19 +29,23 @@ class StatisticsViewController: UIViewController {
     private let exercisesLabel: UILabel = {
         let label = UILabel()
         label.text = "Exercises"
-        
         label.font = .robotoMedium14()
         label.textColor = .specialBrown
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let segmentedControl: UISegmentedControl = {
+    private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Week", "Month"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.backgroundColor = .specialGreen
         segmentedControl.selectedSegmentTintColor = .specialYellow
-        
+        let font = UIFont(name: "Roboto-Medium", size: 16)
+        segmentedControl.setTitleTextAttributes([.font : font as Any,
+                                                 .foregroundColor : UIColor.white], for: .normal)
+        segmentedControl.setTitleTextAttributes([.font : font as Any,
+                                                 .foregroundColor : UIColor.specialGray], for: .selected)
+        segmentedControl.addTarget(self, action: #selector(segmentedChange), for: .valueChanged)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
     }()
@@ -56,6 +59,14 @@ class StatisticsViewController: UIViewController {
         view.addSubview(segmentedControl)
         view.addSubview(exercisesLabel)
         view.addSubview(statisticsTableView)
+    }
+    
+    @objc private func segmentedChange() {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            print("week")
+        } else {
+            print("month")
+        }
     }
 }
 

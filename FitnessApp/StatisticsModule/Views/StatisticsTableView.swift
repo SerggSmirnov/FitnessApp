@@ -1,5 +1,5 @@
 //
-//  WorkoutView.swift
+//  StatisticsTableView.swift
 //  FitnessApp
 //
 //  Created by Сергей Смирнов on 09.10.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WorkoutTableView: UITableView {
+class StatisticsTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -23,34 +23,33 @@ class WorkoutTableView: UITableView {
     private func setupViews() {
         self.backgroundColor = .none
         self.separatorStyle = .none
-        self.bounces = false
+        self.bounces = true
         self.showsVerticalScrollIndicator = false
         self.delaysContentTouches = false
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idTableViewCell)
+        self.register(StatisticsTableViewCell.self, forCellReuseIdentifier: idStatisticsTableViewCell)
     }
     
-    private let idTableViewCell = "idTableViewCell"
+    private let idStatisticsTableViewCell = "idStatisticsTableViewCell"
     
     private func setDelegates() {
         self.delegate = self
         self.dataSource = self
     }
-    
 }
 
 //MARK: - UITableViewDataSource
 
-extension WorkoutTableView: UITableViewDataSource {
+extension StatisticsTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            15
+            5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.dequeueReusableCell(withIdentifier: idTableViewCell, for: indexPath) as?
-                WorkoutTableViewCell else {
+        guard let cell = self.dequeueReusableCell(withIdentifier: idStatisticsTableViewCell, for: indexPath) as?
+                StatisticsTableViewCell else {
             return UITableViewCell()
         }
       
@@ -60,9 +59,9 @@ extension WorkoutTableView: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 
-extension WorkoutTableView: UITableViewDelegate {
+extension StatisticsTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        70
     }
 }
