@@ -76,7 +76,8 @@ class StatisticsTableViewCell: UITableViewCell {
         addSubview(separatorView)
         
         labelsStackView = UIStackView(arrangedSubviews: [exerciseBeforeLabel, exerciseNowLabel],
-                                               spacing: 10)
+                                      axis: .horizontal,
+                                      spacing: 10)
         
         addSubview(labelsStackView)
     }
