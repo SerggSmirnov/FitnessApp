@@ -21,7 +21,7 @@ class StatisticsTableViewCell: UITableViewCell {
     }
     
     private let separatorView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .specialLine
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -48,7 +48,7 @@ class StatisticsTableViewCell: UITableViewCell {
     }()
     
     private let exerciseBeforeLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Before: 10"
         label.textColor = .specialBrown
         label.font = .robotoMedium14()
@@ -57,7 +57,7 @@ class StatisticsTableViewCell: UITableViewCell {
     }()
     
     private let exerciseNowLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Now: 12"
         label.textColor = .specialBrown
         label.font = .robotoMedium14()
@@ -70,7 +70,7 @@ class StatisticsTableViewCell: UITableViewCell {
     private func setupViews() {
         backgroundColor = .clear
         selectionStyle = .none
-
+        
         addSubview(exerciseNameLabel)
         addSubview(statisticNumberLabel)
         addSubview(separatorView)

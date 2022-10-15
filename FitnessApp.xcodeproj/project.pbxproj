@@ -133,8 +133,8 @@
 		501293FF28F5F35200A24EA0 /* StatisticsModule */ = {
 			isa = PBXGroup;
 			children = (
-				5012940228F5F38300A24EA0 /* Controller */,
 				5012940028F5F37400A24EA0 /* Views */,
+				5012940228F5F38300A24EA0 /* Controller */,
 			);
 			path = StatisticsModule;
 			sourceTree = "<group>";

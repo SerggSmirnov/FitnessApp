@@ -35,7 +35,7 @@ class SliderView: UIView {
                                     font: .robotoMedium18(),
                                     textColor: .specialGray)
     
-    private lazy var slider = GreenSlider(minValue: 0, maxValue: 10)
+    private lazy var slider = GreenSlider()
     
     private var stackView = UIStackView()
     
