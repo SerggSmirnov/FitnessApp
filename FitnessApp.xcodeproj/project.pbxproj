@@ -13,6 +13,7 @@
 		501293F728F5E3C000A24EA0 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501293F628F5E3C000A24EA0 /* MainTabBarController.swift */; };
 		501293F928F5F05300A24EA0 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501293F828F5F05300A24EA0 /* NewWorkoutViewController.swift */; };
 		5012940728F5F7A800A24EA0 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5012940628F5F7A800A24EA0 /* UILabel + Extensions.swift */; };
+		5017038228FBF06400E7427B /* CalendarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5017038128FBF06400E7427B /* CalendarCollectionView.swift */; };
 		509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D492E28EC96B10052A8F2 /* AppDelegate.swift */; };
 		509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493028EC96B10052A8F2 /* SceneDelegate.swift */; };
 		509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493228EC96B10052A8F2 /* MainViewController.swift */; };
@@ -46,6 +47,7 @@
 		501293F628F5E3C000A24EA0 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		501293F828F5F05300A24EA0 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		5012940628F5F7A800A24EA0 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UILabel + Extensions.swift"; path = "FitnessApp/Extensions/UILabel + Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		5017038128FBF06400E7427B /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionView.swift; sourceTree = "<group>"; };
 		509D492B28EC96B10052A8F2 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509D492E28EC96B10052A8F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509D493028EC96B10052A8F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		501293FD28F5F30100A24EA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5017038028FBF03A00E7427B /* SubViews */,
 				509D494728ECAA800052A8F2 /* CalendarView.swift */,
 				50EC503E28ECBB3400559577 /* WeatherView.swift */,
 				50EC507A28F2B44400559577 /* WorkoutTableView.swift */,
@@ -190,6 +193,14 @@
 				50A4D10728F9372700234A33 /* SubViews */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5017038028FBF03A00E7427B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5017038128FBF06400E7427B /* CalendarCollectionView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		509D492228EC96B10052A8F2 = {
@@ -393,6 +404,7 @@
 				501293F528F33DF800A24EA0 /* StatisticsTableViewCell.swift in Sources */,
 				5012940728F5F7A800A24EA0 /* UILabel + Extensions.swift in Sources */,
 				50EC507228F1BA0B00559577 /* UIView + Extensions.swift in Sources */,
+				5017038228FBF06400E7427B /* CalendarCollectionView.swift in Sources */,
 				509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */,
 				50A4D10628F9357A00234A33 /* GreenButton.swift in Sources */,
 				50A4D0F928F73CEE00234A33 /* DateAndRepeatView.swift in Sources */,

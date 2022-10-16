@@ -68,9 +68,7 @@ class MainViewController: UIViewController {
     }
     
     private let calendarView = CalendarView()
-    
     private let weatherView = WeatherView()
-    
     private let tableView = WorkoutTableView()
 
     override func viewDidLoad() {
