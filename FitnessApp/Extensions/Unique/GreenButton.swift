@@ -18,6 +18,7 @@ class GreenButton: UIButton {
         setTitle(text, for: .normal)
         
         configure()
+        addShadowOnView()
     }
     
     required init?(coder: NSCoder) {

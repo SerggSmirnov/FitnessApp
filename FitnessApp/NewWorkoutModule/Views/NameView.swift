@@ -28,6 +28,12 @@ class NameView: UIView {
         
         addSubview(nameLabel)
         addSubview(nameTextField)
+        nameTextField.addShadowOnView()
+    }
+    
+    public func getNameTextFieldText() -> String {
+        guard let text = nameTextField.text else { return "" }
+        return text
     }
 }
 

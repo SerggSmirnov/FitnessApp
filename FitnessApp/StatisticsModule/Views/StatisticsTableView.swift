@@ -26,7 +26,6 @@ class StatisticsTableView: UITableView {
         self.bounces = true
         self.showsVerticalScrollIndicator = false
         self.delaysContentTouches = false
-        
         self.translatesAutoresizingMaskIntoConstraints = false
         self.register(StatisticsTableViewCell.self, forCellReuseIdentifier: idStatisticsTableViewCell)
     }

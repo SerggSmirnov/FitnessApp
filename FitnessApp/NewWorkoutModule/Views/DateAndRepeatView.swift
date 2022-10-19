@@ -62,7 +62,7 @@ class DateAndRepeatView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(dateAndRepeatLabel)
         self.addSubview(backView)
-        
+        backView.addShadowOnView()
         dateStackView = UIStackView(arrangedSubviews: [dateLabel, datePicker],
                                     axis: .horizontal,
                                     spacing: 10)
@@ -72,6 +72,10 @@ class DateAndRepeatView: UIView {
                                       axis: .horizontal,
                                       spacing: 10)
         backView.addSubview(repeatStackView)
+    }
+    
+    public func getDataAndRepeat() -> (date: Date, repeat: Bool) {
+        (datePicker.date, repeatSwitch.isOn)
     }
 }
 

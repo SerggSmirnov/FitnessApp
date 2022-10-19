@@ -30,6 +30,10 @@ class NewWorkoutViewController: UIViewController {
     
     private var stackView = UIStackView()
     
+    private var workoutModel = WorkoutModel()
+    
+    private let testImage = UIImage(named: "testWorkout")
+    
     private func setupViews() {
 //        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .specialBackground
@@ -53,10 +57,25 @@ class NewWorkoutViewController: UIViewController {
     }
     
     @objc private func saveButtonTapped() {
-        print("saveButtonTapped")
+        setModel()
+        RealmManager.shared.saveWorkoutModel(workoutModel)
+        print(workoutModel)
     }
     
-    private let testSliderView = SliderView()
+    private func setModel() {
+        workoutModel.workoutName = nameView.getNameTextFieldText()
+        
+        workoutModel.workoutDate = dateAndRepeatView.getDataAndRepeat().date
+        workoutModel.workoutNumberOfDay = dateAndRepeatView.getDataAndRepeat().date.getWeekDayNumber()
+        workoutModel.workoutRepeat = dateAndRepeatView.getDataAndRepeat().repeat
+        
+        workoutModel.workoutSets = repsOrTimerView.sets
+        workoutModel.workoutReps = repsOrTimerView.reps
+        workoutModel.workoutTimer = repsOrTimerView.timer
+        
+        guard let imageData = testImage?.pngData() else { return }
+        workoutModel.workoutImage = imageData
+    }
 }
 
 //MARK: - setConstraints

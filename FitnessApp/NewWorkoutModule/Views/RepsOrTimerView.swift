@@ -14,6 +14,7 @@ class RepsOrTimerView: UIView {
         
         setupViews()
         setConstraints()
+        setDelegates()
     }
     
     required init?(coder: NSCoder) {
@@ -30,13 +31,15 @@ class RepsOrTimerView: UIView {
         return view
     }()
     
-    let setsView = SliderView(name: "Sets", minValue: 0, maxValue: 10)
-    let repsView = SliderView(name: "Reps", minValue: 0, maxValue: 50)
-    let timerView = SliderView(name: "Timer", minValue: 0, maxValue: 600)
+    private let setsView = SliderView(name: "Sets", minValue: 0, maxValue: 10, type: .sets)
+    private let repsView = SliderView(name: "Reps", minValue: 0, maxValue: 50, type: .reps)
+    private let timerView = SliderView(name: "Timer", minValue: 0, maxValue: 600, type: .timer)
     
     private let repeatOrTimerLabel = UILabel(text: "Choose repeat or timer")
     
     private var stackView = UIStackView()
+    
+    public var (sets, reps, timer) = (0, 0, 0)
     
     private func setupViews() {
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +47,7 @@ class RepsOrTimerView: UIView {
         
         self.addSubview(repsOrTimerLabel)
         self.addSubview(backView)
+        backView.addShadowOnView()
         
         stackView = UIStackView(arrangedSubviews: [setsView,
                                                   repsView,
@@ -52,7 +56,36 @@ class RepsOrTimerView: UIView {
                                 spacing: 20)
         backView.addSubview(stackView)
     }
+    
+    private func setDelegates() {
+        setsView.delegate = self
+        repsView.delegate = self
+        timerView.delegate = self
+    }
 }
+
+//MARK: - SliderViewProtocol
+
+extension RepsOrTimerView: SliderViewProtocol {
+    func changeValue(type: SliderType, value: Int) {
+        switch type {
+        case .sets:
+            sets = value
+        case .reps:
+            reps = value
+            repsView.isActive = true
+            timerView.isActive = false
+            timer = 0
+        case .timer:
+            timer = value
+            timerView.isActive = true
+            repsView.isActive = false
+            reps = 0
+        }
+    }
+}
+
+//MARK: - setConstraints
 
 extension RepsOrTimerView {
     

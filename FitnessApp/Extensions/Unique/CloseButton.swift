@@ -13,6 +13,7 @@ class CloseButton: UIButton {
         super.init(frame: frame)
         
         configure()
+        addShadowOnView()
     }
     
     required init?(coder: NSCoder) {
