@@ -20,6 +20,9 @@
 		5017038E28FF23AB00E7427B /* SliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5017038D28FF23AB00E7427B /* SliderType.swift */; };
 		5017039028FF296E00E7427B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5017038F28FF296E00E7427B /* Date.swift */; };
 		5092825928FF2C65005E2C72 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092825828FF2C65005E2C72 /* RealmManager.swift */; };
+		5092825C2900600D005E2C72 /* StartWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092825B2900600D005E2C72 /* StartWorkoutViewController.swift */; };
+		509282602901C199005E2C72 /* SetsOrRepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092825F2901C199005E2C72 /* SetsOrRepsView.swift */; };
+		509282622901C771005E2C72 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509282612901C771005E2C72 /* DetailsView.swift */; };
 		509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D492E28EC96B10052A8F2 /* AppDelegate.swift */; };
 		509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493028EC96B10052A8F2 /* SceneDelegate.swift */; };
 		509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493228EC96B10052A8F2 /* MainViewController.swift */; };
@@ -60,6 +63,9 @@
 		5017038D28FF23AB00E7427B /* SliderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderType.swift; sourceTree = "<group>"; };
 		5017038F28FF296E00E7427B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5092825828FF2C65005E2C72 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		5092825B2900600D005E2C72 /* StartWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutViewController.swift; sourceTree = "<group>"; };
+		5092825F2901C199005E2C72 /* SetsOrRepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetsOrRepsView.swift; path = FitnessApp/StartWorkoutModule/Views/SetsOrRepsView.swift; sourceTree = SOURCE_ROOT; };
+		509282612901C771005E2C72 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		509D492B28EC96B10052A8F2 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509D492E28EC96B10052A8F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509D493028EC96B10052A8F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,8 +175,8 @@
 		5012940028F5F37400A24EA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5012940128F5F37E00A24EA0 /* Cell */,
 				501293F228F2F80E00A24EA0 /* StatisticsTableView.swift */,
+				5012940128F5F37E00A24EA0 /* Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +258,32 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		5092825A29005F92005E2C72 /* StartWorkoutModule */ = {
+			isa = PBXGroup;
+			children = (
+				5092825D2901C15F005E2C72 /* Views */,
+				5092825B2900600D005E2C72 /* StartWorkoutViewController.swift */,
+			);
+			path = StartWorkoutModule;
+			sourceTree = "<group>";
+		};
+		5092825D2901C15F005E2C72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				509282612901C771005E2C72 /* DetailsView.swift */,
+				5092825E2901C16B005E2C72 /* SubViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5092825E2901C16B005E2C72 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5092825F2901C199005E2C72 /* SetsOrRepsView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		509D492228EC96B10052A8F2 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +310,7 @@
 				501293FB28F5F2D500A24EA0 /* MainModule */,
 				501293FF28F5F35200A24EA0 /* StatisticsModule */,
 				5012940328F5F3EA00A24EA0 /* NewWorkoutModule */,
+				5092825A29005F92005E2C72 /* StartWorkoutModule */,
 				509D494428EC9B430052A8F2 /* Model */,
 				50EC506A28F1B86200559577 /* Extensions */,
 				5017039128FF2B8900E7427B /* Service */,
@@ -490,14 +523,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				50A4D10428F9357A00234A33 /* BrownTextField.swift in Sources */,
+				509282622901C771005E2C72 /* DetailsView.swift in Sources */,
 				50A4D10928F9532100234A33 /* SliderView.swift in Sources */,
 				5017038E28FF23AB00E7427B /* SliderType.swift in Sources */,
 				50EC503F28ECBB3400559577 /* WeatherView.swift in Sources */,
 				50EC507428F1D57D00559577 /* UIFont + Extensions.swift in Sources */,
+				5092825C2900600D005E2C72 /* StartWorkoutViewController.swift in Sources */,
 				501293F328F2F80E00A24EA0 /* StatisticsTableView.swift in Sources */,
 				509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */,
 				509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */,
 				50A4D10528F9357A00234A33 /* CloseButton.swift in Sources */,
+				509282602901C199005E2C72 /* SetsOrRepsView.swift in Sources */,
 				50EC507D28F2BD2900559577 /* WorkoutTableViewCell.swift in Sources */,
 				50EC507B28F2B44400559577 /* WorkoutTableView.swift in Sources */,
 				5092825928FF2C65005E2C72 /* RealmManager.swift in Sources */,

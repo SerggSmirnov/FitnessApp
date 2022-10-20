@@ -71,9 +71,9 @@ class StatisticsTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        addSubview(exerciseNameLabel)
-        addSubview(statisticNumberLabel)
-        addSubview(separatorView)
+        self.addSubview(exerciseNameLabel)
+        self.addSubview(statisticNumberLabel)
+        self.addSubview(separatorView)
         
         labelsStackView = UIStackView(arrangedSubviews: [exerciseBeforeLabel, exerciseNowLabel],
                                       axis: .horizontal,
