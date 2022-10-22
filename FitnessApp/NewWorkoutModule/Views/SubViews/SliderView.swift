@@ -87,6 +87,16 @@ class SliderView: UIView {
         delegate?.changeValue(type: type, value: intValueSlider)
     }
     
+    public func resetValues() {
+        numberLabel.text = "0"
+        slider.value = 0
+        isActive = true
+    }
+}
+
+//MARK: - setConstraints
+
+extension SliderView {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),

@@ -14,6 +14,7 @@ class NewWorkoutViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        addGesture()
     }
     
     private let newWorkoutLabel = UILabel(text: "NEW WORKOUT",
@@ -58,14 +59,14 @@ class NewWorkoutViewController: UIViewController {
     
     @objc private func saveButtonTapped() {
         setModel()
-        RealmManager.shared.saveWorkoutModel(workoutModel)
-        print(workoutModel)
+        saveModel()
+        
     }
     
     private func setModel() {
         workoutModel.workoutName = nameView.getNameTextFieldText()
         
-        workoutModel.workoutDate = dateAndRepeatView.getDataAndRepeat().date
+        workoutModel.workoutDate = dateAndRepeatView.getDataAndRepeat().date.localDate()
         workoutModel.workoutNumberOfDay = dateAndRepeatView.getDataAndRepeat().date.getWeekDayNumber()
         workoutModel.workoutRepeat = dateAndRepeatView.getDataAndRepeat().repeat
         
@@ -75,6 +76,44 @@ class NewWorkoutViewController: UIViewController {
         
         guard let imageData = testImage?.pngData() else { return }
         workoutModel.workoutImage = imageData
+    }
+    
+    private func saveModel() {
+        let text = nameView.getNameTextFieldText()
+        let count = text.filter {$0.isNumber || $0.isLetter}.count
+        
+        if count != 0 &&
+            workoutModel.workoutSets != 0 &&
+            (workoutModel.workoutReps != 0 || workoutModel.workoutTimer != 0) {
+            RealmManager.shared.saveWorkoutModel(workoutModel)
+            print(workoutModel)
+            workoutModel = WorkoutModel()
+            presentSimpleAlert(title: "Success", message: "Your workout saved")
+            resetValues()
+            
+        } else {
+            presentSimpleAlert(title: "Error", message: "Enter all parameters")
+        }
+    }
+    
+    private func resetValues() {
+        nameView.resetTextFieldtext()
+        dateAndRepeatView.resetDateAndRepeat()
+        repsOrTimerView.resetSliderViewValues()
+    }
+    
+    private func addGesture() {
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapScreen)
+        
+        let swipeScreen = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        swipeScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(swipeScreen)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
     }
 }
 
