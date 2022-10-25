@@ -1,19 +1,24 @@
 //
-//  DetailsView.swift
+//  DetailsTimerView.swift
 //  FitnessApp
 //
-//  Created by Сергей Смирнов on 20.10.2022.
+//  Created by Сергей Смирнов on 24.10.2022.
 //
 
 import UIKit
 
-class DetailsView: UIView {
-    
+class DetailsTimerView: UIView {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupViews()
         setConstraints()
+    }
+    
+    convenience init(name: String) {
+        self.init(frame: .zero)
+        exerciseLabel.text = name
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +41,7 @@ class DetailsView: UIView {
     
     private let setsView = SetsOrRepsView(name: "Sets")
     
-    private let repsView = SetsOrRepsView(name: "Reps")
+    private let timerView = SetsOrRepsView(name: "Timer")
     
     private var stackView = UIStackView()
     
@@ -84,7 +89,7 @@ class DetailsView: UIView {
         
         stackView = UIStackView(arrangedSubviews: [exerciseLabel,
                                                   setsView,
-                                                  repsView],
+                                                  timerView],
                                 axis: .vertical,
                                 spacing: 20)
         stackView.distribution = .fillEqually
@@ -96,7 +101,7 @@ class DetailsView: UIView {
     }
 }
 
-extension DetailsView {
+extension DetailsTimerView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([

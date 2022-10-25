@@ -7,12 +7,12 @@
 
 import UIKit
 
-class WorkoutTableView: UITableView {
+class MainTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
         
-        setupViews()
+        configure()
         setDelegates()
     }
     
@@ -20,7 +20,11 @@ class WorkoutTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
+    private var workoutsArray = [WorkoutModel]()
+    
+    private let idTableViewCell = "idTableViewCell"
+    
+    private func configure() {
         self.backgroundColor = .none
         self.separatorStyle = .none
         self.bounces = true
@@ -31,21 +35,23 @@ class WorkoutTableView: UITableView {
         self.register(WorkoutTableViewCell.self, forCellReuseIdentifier: idTableViewCell)
     }
     
-    private let idTableViewCell = "idTableViewCell"
-    
     private func setDelegates() {
         self.delegate = self
         self.dataSource = self
+    }
+    
+    public func setWorkoutArray(array: [WorkoutModel]) {
+        workoutsArray = array
     }
     
 }
 
 //MARK: - UITableViewDataSource
 
-extension WorkoutTableView: UITableViewDataSource {
+extension MainTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            15
+        workoutsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +66,7 @@ extension WorkoutTableView: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 
-extension WorkoutTableView: UITableViewDelegate {
+extension MainTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100

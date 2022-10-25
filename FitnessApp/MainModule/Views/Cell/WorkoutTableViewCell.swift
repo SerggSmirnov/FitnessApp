@@ -74,10 +74,6 @@ class WorkoutTableViewCell: UITableViewCell {
         return button
     }()
     
-    @objc private func startButtonTapped() {
-        print("startButtonTapped")
-    }
-    
     var labelsStackView = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -107,6 +103,28 @@ class WorkoutTableViewCell: UITableViewCell {
         addSubview(labelsStackView)
         contentView.addSubview(startButton)
         addShadowOnView()
+    }
+    
+    @objc private func startButtonTapped() {
+        print("startButtonTapped")
+    }
+    
+    public func configure(model: WorkoutModel) {
+        workoutNameLabel.text = model.workoutName
+        
+        if model.workoutTimer == 0 {
+            workoutRepsLabel.text = "Reps: \(model.workoutReps)"
+        } else {
+            workoutRepsLabel.text = "Timer: \(model.workoutTimer.getTimerFromSeconds())"
+        }
+        
+        workoutSetsLabel.text = "Sets: \(model.workoutSets)"
+        
+        
+        
+        
+        
+        
     }
 }
 

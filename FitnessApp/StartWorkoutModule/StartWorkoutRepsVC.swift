@@ -1,5 +1,5 @@
 //
-//  StartWorkoutViewController.swift
+//  StartWorkoutRepsVC.swift
 //  FitnessApp
 //
 //  Created by Сергей Смирнов on 19.10.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StartWorkoutViewController: UIViewController {
+class StartWorkoutRepsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class StartWorkoutViewController: UIViewController {
         return imageView
     }()
     
-    private let detailsView = DetailsView()
+    private let detailsView = DetailsRepsView(name: "Biceps")
     
     private lazy var finishButton = GreenButton(text: "FINISH")
     
@@ -57,7 +57,7 @@ class StartWorkoutViewController: UIViewController {
 
 //MARK: - setConstraints
 
-extension StartWorkoutViewController {
+extension StartWorkoutRepsVC {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
