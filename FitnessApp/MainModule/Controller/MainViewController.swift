@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MainViewController: UIViewController {
     
@@ -61,19 +60,26 @@ class MainViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let noTrainingImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "noTraining")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
     private let tableView = MainTableView()
-    
-    private let localRealm = try! Realm()
-    private var workoutArray: Results<WorkoutModel>!
+    private var workoutArray = [WorkoutModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstraints()
+        selectItem(date: Date().localDate())
     }
     
     private func setupViews() {
@@ -87,6 +93,8 @@ class MainViewController: UIViewController {
         view.addSubview(weatherView)
         view.addSubview(workoutTodayLabel)
         view.addSubview(tableView)
+        tableView.mainTableViewDelegate = self
+        view.addSubview(noTrainingImageView)
     }
 
     @objc private func addWorkoutButtonTapped() {
@@ -103,8 +111,19 @@ class MainViewController: UIViewController {
         let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutRepeat = true")
         let predicateUnrepeat = NSPredicate(format: "workoutRepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
         let compound = NSCompoundPredicate(type: .or, subpredicates: [predicateRepeat, predicateUnrepeat])
-        
-        workoutArray = localRealm.objects(WorkoutModel.self).filter(compound).sorted(byKeyPath: "workoutName")
+        let resultArray = RealmManager.shared.getResultWorkoutModel()
+        let filtredArray = resultArray.filter(compound).sorted(byKeyPath: "workoutName")
+        workoutArray = filtredArray.map{$0}
+    }
+    
+    private func checkWorkoutToday() {
+        if workoutArray.count == 0 {
+            noTrainingImageView.isHidden = false
+            tableView.isHidden = true
+        } else {
+            noTrainingImageView.isHidden = true
+            tableView.isHidden = false
+        }
     }
 
 }
@@ -114,15 +133,23 @@ class MainViewController: UIViewController {
 extension MainViewController: CalendarViewProtocol {
     func selectItem(date: Date) {
         getWorkouts(date: date)
-        var testArray = [WorkoutModel]()
-        workoutArray.forEach { model in
-            testArray.append(model)
-        }
-        tableView.setWorkoutArray(array: testArray)
+        tableView.setWorkoutArray(array: workoutArray)
         tableView.reloadData()
+        checkWorkoutToday()
     }
     
     
+}
+
+//MARK: - MainTableViewProtocol
+
+extension MainViewController: MainTableViewProtocol {
+    func deleteWorkout(model: WorkoutModel, index: Int) {
+        RealmManager.shared.deleteWorkoutModel(model)
+        workoutArray.remove(at: index)
+        tableView.setWorkoutArray(array: workoutArray)
+        tableView.reloadData()
+    }
 }
 
 //MARK: - Constraints
@@ -161,7 +188,12 @@ extension MainViewController {
         tableView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0),
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+        
+        noTrainingImageView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0),
+        noTrainingImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+        noTrainingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+        noTrainingImageView.heightAnchor.constraint(equalTo: noTrainingImageView.widthAnchor, multiplier: 1)
         ])
     }
 }

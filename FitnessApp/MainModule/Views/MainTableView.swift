@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol MainTableViewProtocol: AnyObject {
+    func deleteWorkout(model: WorkoutModel, index: Int)
+}
+
 class MainTableView: UITableView {
+    
+    weak var mainTableViewDelegate: MainTableViewProtocol?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -59,7 +65,8 @@ extension MainTableView: UITableViewDataSource {
                 WorkoutTableViewCell else {
             return UITableViewCell()
         }
-      
+        let workoutModel = workoutsArray[indexPath.row]
+        cell.configure(model: workoutModel)
         return cell
     }
 }
@@ -70,5 +77,18 @@ extension MainTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .destructive, title: "", handler: {_, _, _ in
+            let deleteModel = self.workoutsArray[indexPath.row]
+            self.mainTableViewDelegate?.deleteWorkout(model: deleteModel, index: indexPath.row)
+        })
+        
+        action.backgroundColor = .specialBackground
+        action.image = UIImage(named: "delete")
+        
+        return UISwipeActionsConfiguration(actions: [action])
     }
 }
