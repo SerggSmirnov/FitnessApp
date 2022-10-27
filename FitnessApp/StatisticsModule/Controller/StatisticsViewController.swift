@@ -52,6 +52,9 @@ class StatisticsViewController: UIViewController {
     
     private let statisticsTableView = StatisticsTableView()
     
+    private var workoutArray = [WorkoutModel]()
+    private var differenceArray = [DifferenceWorkout]()
+    
     private func setupViews() {
         view.backgroundColor = .specialBackground
         
@@ -66,6 +69,39 @@ class StatisticsViewController: UIViewController {
             print("week")
         } else {
             print("month")
+        }
+    }
+    
+    private func getWorkoutsName() -> [String] {
+        var nameArray = [String]()
+        
+        let allWorkout = RealmManager.shared.getResultWorkoutModel()
+        
+        for workoutModel in allWorkout {
+            if !nameArray.contains(workoutModel.workoutName) {
+                nameArray.append(workoutModel.workoutName)
+            }
+        }
+        return nameArray
+    }
+    
+    private func getDifferenceModel(dateStart: Date) {
+        let dateEnd = Date().localDate()
+        let nameArray = getWorkoutsName()
+        let allWorkouts = RealmManager.shared.getResultWorkoutModel()
+        
+        for name in nameArray {
+            let predicateDifference = NSPredicate(format: "workoutName = '\(name)' AND workoutDate BETWEEN %@", [dateStart, dateEnd])
+            let filtredArray = allWorkouts.filter(predicateDifference).sorted(byKeyPath: "workoutDate")
+            workoutArray = filtredArray.map{$0}
+            
+            guard let last = workoutArray.last?.workoutReps,
+                  let first = workoutArray.first?.workoutReps else {
+                return
+            }
+            
+            let differenceWorkout = DifferenceWorkout(name: name, lastReps: last, firstReps: first)
+            differenceArray.append(differenceWorkout)
         }
     }
 }

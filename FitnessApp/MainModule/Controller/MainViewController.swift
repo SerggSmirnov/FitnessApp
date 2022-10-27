@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
         imageView.backgroundColor = .specialLine
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 5
-        imageView.layer.cornerRadius = 50
+//        imageView.layer.cornerRadius = 50
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -73,13 +73,22 @@ class MainViewController: UIViewController {
     private let weatherView = WeatherView()
     private let tableView = MainTableView()
     private var workoutArray = [WorkoutModel]()
+    
+    override func viewWillLayoutSubviews() {
+        userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        selectItem(date: Date().localDate())
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstraints()
-        selectItem(date: Date().localDate())
     }
     
     private func setupViews() {
@@ -149,6 +158,14 @@ extension MainViewController: MainTableViewProtocol {
         workoutArray.remove(at: index)
         tableView.setWorkoutArray(array: workoutArray)
         tableView.reloadData()
+    }
+}
+
+//MARK: - WorkoutCellProtocol
+
+extension MainViewController: WorkoutCellProtocol {
+    func startButtonTapped(model: WorkoutModel) {
+        print(model)
     }
 }
 

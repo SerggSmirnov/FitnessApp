@@ -23,9 +23,9 @@ extension Date {
     
     func getWeekArray() -> [[String]] {
         
-        let formater = DateFormatter()
-        formater.locale = Locale(identifier: "en_GB")
-        formater.dateFormat = "EEEEEE"
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_GB")
+        formatter.dateFormat = "EEEEEE"
         let calendar = Calendar.current
         
         var weekArray : [[String]] = [[], []]
@@ -34,7 +34,7 @@ extension Date {
             let date = calendar.date(byAdding: .day, value: index, to: self) ?? Date()
             let day = calendar.component(.day, from: date)
             weekArray[1].append("\(day)")
-            let weekDay = formater.string(from: date)
+            let weekDay = formatter.string(from: date)
             weekArray[0].append(weekDay)
         }
         
@@ -43,6 +43,11 @@ extension Date {
     
     func offsetDay(day: Int) -> Date {
         let offsetDay = Calendar.current.date(byAdding: .day, value: -day, to: self) ?? Date()
+        return offsetDay
+    }
+    
+    func offsetMonth(month: Int) -> Date {
+        let offsetDay = Calendar.current.date(byAdding: .month, value: -month, to: self) ?? Date()
         return offsetDay
     }
     

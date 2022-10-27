@@ -26,6 +26,7 @@
 		509282642903E552005E2C72 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509282632903E552005E2C72 /* UIViewController + Extension.swift */; };
 		5092826C29058FC7005E2C72 /* StartWorkoutTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092826B29058FC7005E2C72 /* StartWorkoutTimerVC.swift */; };
 		5092826E2906F7A4005E2C72 /* DetailsTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092826D2906F7A4005E2C72 /* DetailsTimerView.swift */; };
+		50928271290B0169005E2C72 /* DifferenceWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50928270290B0169005E2C72 /* DifferenceWorkout.swift */; };
 		509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D492E28EC96B10052A8F2 /* AppDelegate.swift */; };
 		509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493028EC96B10052A8F2 /* SceneDelegate.swift */; };
 		509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D493228EC96B10052A8F2 /* MainViewController.swift */; };
@@ -72,6 +73,7 @@
 		509282632903E552005E2C72 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		5092826B29058FC7005E2C72 /* StartWorkoutTimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutTimerVC.swift; sourceTree = "<group>"; };
 		5092826D2906F7A4005E2C72 /* DetailsTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTimerView.swift; sourceTree = "<group>"; };
+		50928270290B0169005E2C72 /* DifferenceWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferenceWorkout.swift; sourceTree = "<group>"; };
 		509D492B28EC96B10052A8F2 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509D492E28EC96B10052A8F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509D493028EC96B10052A8F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		501293FF28F5F35200A24EA0 /* StatisticsModule */ = {
 			isa = PBXGroup;
 			children = (
+				5092826F290B0147005E2C72 /* Models */,
 				5012940028F5F37400A24EA0 /* Views */,
 				5012940228F5F38300A24EA0 /* Controller */,
 			);
@@ -290,6 +293,14 @@
 				5092825F2901C199005E2C72 /* SetsOrRepsView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		5092826F290B0147005E2C72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50928270290B0169005E2C72 /* DifferenceWorkout.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		509D492228EC96B10052A8F2 = {
@@ -564,6 +575,7 @@
 				50EC507228F1BA0B00559577 /* UIView + Extensions.swift in Sources */,
 				5017038228FBF06400E7427B /* CalendarCollectionView.swift in Sources */,
 				509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */,
+				50928271290B0169005E2C72 /* DifferenceWorkout.swift in Sources */,
 				50A4D10628F9357A00234A33 /* GreenButton.swift in Sources */,
 				5017039028FF296E00E7427B /* Date.swift in Sources */,
 				50A4D0F928F73CEE00234A33 /* DateAndRepeatView.swift in Sources */,
