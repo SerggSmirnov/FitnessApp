@@ -20,6 +20,8 @@ class StatisticsTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var differenceArray = [DifferenceWorkout]()
+    
     private func setupViews() {
         self.backgroundColor = .none
         self.separatorStyle = .none
@@ -36,6 +38,10 @@ class StatisticsTableView: UITableView {
         self.delegate = self
         self.dataSource = self
     }
+    
+    public func setDifferenceArray(array: [DifferenceWorkout]) {
+        differenceArray = array
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -43,7 +49,7 @@ class StatisticsTableView: UITableView {
 extension StatisticsTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            5
+        differenceArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +57,8 @@ extension StatisticsTableView: UITableViewDataSource {
                 StatisticsTableViewCell else {
             return UITableViewCell()
         }
-      
+        let model = differenceArray[indexPath.row]
+        cell.configure(differenceWorkout: model)
         return cell
     }
 }

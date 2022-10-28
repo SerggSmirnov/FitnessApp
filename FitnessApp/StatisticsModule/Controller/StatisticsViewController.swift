@@ -15,6 +15,14 @@ class StatisticsViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        setStartScreen()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        differenceArray = [DifferenceWorkout]()
+        setStartScreen()
     }
     
     private let statisticsLabel: UILabel = {
@@ -50,7 +58,7 @@ class StatisticsViewController: UIViewController {
         return segmentedControl
     }()
     
-    private let statisticsTableView = StatisticsTableView()
+    private let tableView = StatisticsTableView()
     
     private var workoutArray = [WorkoutModel]()
     private var differenceArray = [DifferenceWorkout]()
@@ -61,15 +69,22 @@ class StatisticsViewController: UIViewController {
         view.addSubview(statisticsLabel)
         view.addSubview(segmentedControl)
         view.addSubview(exercisesLabel)
-        view.addSubview(statisticsTableView)
+        view.addSubview(tableView)
     }
     
     @objc private func segmentedChange() {
+        
+        let dateToday = Date().localDate()
+        differenceArray = [DifferenceWorkout]()
+        
         if segmentedControl.selectedSegmentIndex == 0 {
-            print("week")
+            let dateStart = dateToday.offsetDay(day: 7)
+            getDifferenceModel(dateStart: dateStart)
         } else {
-            print("month")
+            let dateStart = dateToday.offsetMonth(month: 7)
+            getDifferenceModel(dateStart: dateStart)
         }
+        tableView.reloadData()
     }
     
     private func getWorkoutsName() -> [String] {
@@ -103,6 +118,13 @@ class StatisticsViewController: UIViewController {
             let differenceWorkout = DifferenceWorkout(name: name, lastReps: last, firstReps: first)
             differenceArray.append(differenceWorkout)
         }
+        tableView.setDifferenceArray(array: differenceArray)
+    }
+    
+    private func setStartScreen() {
+        let dateToday = Date().localDate()
+        getDifferenceModel(dateStart: dateToday.offsetDay(day: 7))
+        tableView.reloadData()
     }
 }
 
@@ -122,10 +144,10 @@ extension StatisticsViewController {
             exercisesLabel.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 10),
             exercisesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
-            statisticsTableView.topAnchor.constraint(equalTo: exercisesLabel.bottomAnchor, constant: 5),
-            statisticsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            statisticsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            statisticsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            tableView.topAnchor.constraint(equalTo: exercisesLabel.bottomAnchor, constant: 5),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
 }
