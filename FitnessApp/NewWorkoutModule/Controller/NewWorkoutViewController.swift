@@ -36,7 +36,6 @@ class NewWorkoutViewController: UIViewController {
     private let testImage = UIImage(named: "testWorkout")
     
     private func setupViews() {
-//        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .specialBackground
         
         view.addSubview(newWorkoutLabel)
