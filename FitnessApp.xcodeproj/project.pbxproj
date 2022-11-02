@@ -30,7 +30,7 @@
 		509D493828EC96B20052A8F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509D493728EC96B20052A8F2 /* Assets.xcassets */; };
 		509D493B28EC96B20052A8F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509D493928EC96B20052A8F2 /* LaunchScreen.storyboard */; };
 		509D494828ECAA800052A8F2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D494728ECAA800052A8F2 /* CalendarView.swift */; };
-		50A157CA290D235E00372244 /* WorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A157C9290D235E00372244 /* WorkoutParametersView.swift */; };
+		50A157CA290D235E00372244 /* RepsWorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A157C9290D235E00372244 /* RepsWorkoutParametersView.swift */; };
 		50A157CD290D519200372244 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A157CC290D519200372244 /* CustomAlert.swift */; };
 		50A4D0F928F73CEE00234A33 /* DateAndRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D0F828F73CEE00234A33 /* DateAndRepeatView.swift */; };
 		50A4D0FB28F73D0700234A33 /* RepsOrTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D0FA28F73D0700234A33 /* RepsOrTimerView.swift */; };
@@ -40,6 +40,7 @@
 		50A4D10528F9357A00234A33 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D10128F9357A00234A33 /* CloseButton.swift */; };
 		50A4D10628F9357A00234A33 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D10228F9357A00234A33 /* GreenButton.swift */; };
 		50A4D10928F9532100234A33 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D10828F9532100234A33 /* SliderView.swift */; };
+		50E0F95B29119442007606CF /* TimerWorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */; };
 		50EC503F28ECBB3400559577 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC503E28ECBB3400559577 /* WeatherView.swift */; };
 		50EC506E28F1B8A900559577 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */; };
 		50EC506F28F1B8A900559577 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50EC506D28F1B8A900559577 /* Roboto-Medium.ttf */; };
@@ -78,7 +79,7 @@
 		509D493A28EC96B20052A8F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		509D493C28EC96B20052A8F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509D494728ECAA800052A8F2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		50A157C9290D235E00372244 /* WorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutParametersView.swift; sourceTree = "<group>"; };
+		50A157C9290D235E00372244 /* RepsWorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsWorkoutParametersView.swift; sourceTree = "<group>"; };
 		50A157CC290D519200372244 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		50A4D0F828F73CEE00234A33 /* DateAndRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndRepeatView.swift; sourceTree = "<group>"; };
 		50A4D0FA28F73D0700234A33 /* RepsOrTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsOrTimerView.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		50A4D10128F9357A00234A33 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		50A4D10228F9357A00234A33 /* GreenButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		50A4D10828F9532100234A33 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorkoutParametersView.swift; sourceTree = "<group>"; };
 		50EC503E28ECBB3400559577 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		50EC506D28F1B8A900559577 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -265,19 +267,19 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		5092825A29005F92005E2C72 /* StartWorkoutModule */ = {
+		5092825A29005F92005E2C72 /* RepsWorkoutModule */ = {
 			isa = PBXGroup;
 			children = (
-				50A157CB290D30AD00372244 /* Controllers */,
 				5092825D2901C15F005E2C72 /* Views */,
+				50A157CB290D30AD00372244 /* Controller */,
 			);
-			path = StartWorkoutModule;
+			path = RepsWorkoutModule;
 			sourceTree = "<group>";
 		};
 		5092825D2901C15F005E2C72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				50A157C9290D235E00372244 /* WorkoutParametersView.swift */,
+				50A157C9290D235E00372244 /* RepsWorkoutParametersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,7 +318,8 @@
 				501293FB28F5F2D500A24EA0 /* MainModule */,
 				501293FF28F5F35200A24EA0 /* StatisticsModule */,
 				5012940328F5F3EA00A24EA0 /* NewWorkoutModule */,
-				5092825A29005F92005E2C72 /* StartWorkoutModule */,
+				5092825A29005F92005E2C72 /* RepsWorkoutModule */,
+				50E0F95729119087007606CF /* TimerWorkoutModule */,
 				509D494428EC9B430052A8F2 /* Model */,
 				50EC506A28F1B86200559577 /* Extensions */,
 				5017039128FF2B8900E7427B /* Service */,
@@ -352,13 +355,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		50A157CB290D30AD00372244 /* Controllers */ = {
+		50A157CB290D30AD00372244 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5092826B29058FC7005E2C72 /* TimerWorkoutViewController.swift */,
 				5092825B2900600D005E2C72 /* RepsWorkoutViewController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		50A4D0FE28F879F500234A33 /* Unique */ = {
@@ -379,6 +381,31 @@
 				50A4D10828F9532100234A33 /* SliderView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		50E0F95729119087007606CF /* TimerWorkoutModule */ = {
+			isa = PBXGroup;
+			children = (
+				50E0F959291191C8007606CF /* Views */,
+				50E0F958291190B9007606CF /* Controller */,
+			);
+			path = TimerWorkoutModule;
+			sourceTree = "<group>";
+		};
+		50E0F958291190B9007606CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5092826B29058FC7005E2C72 /* TimerWorkoutViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		50E0F959291191C8007606CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		50EC506A28F1B86200559577 /* Extensions */ = {
@@ -560,7 +587,7 @@
 				50A4D10328F9357A00234A33 /* GreenSlider.swift in Sources */,
 				50A4D0FD28F871AE00234A33 /* NameView.swift in Sources */,
 				501293F928F5F05300A24EA0 /* NewWorkoutViewController.swift in Sources */,
-				50A157CA290D235E00372244 /* WorkoutParametersView.swift in Sources */,
+				50A157CA290D235E00372244 /* RepsWorkoutParametersView.swift in Sources */,
 				5017038B28FF1D5E00E7427B /* WorkoutModel.swift in Sources */,
 				50A4D0FB28F73D0700234A33 /* RepsOrTimerView.swift in Sources */,
 				501293F728F5E3C000A24EA0 /* MainTabBarController.swift in Sources */,
@@ -568,6 +595,7 @@
 				50EC507628F1D5A800559577 /* UIColor + Extensions.swift in Sources */,
 				501293F528F33DF800A24EA0 /* StatisticsTableViewCell.swift in Sources */,
 				5012940728F5F7A800A24EA0 /* UILabel + Extensions.swift in Sources */,
+				50E0F95B29119442007606CF /* TimerWorkoutParametersView.swift in Sources */,
 				50EC507228F1BA0B00559577 /* UIView + Extensions.swift in Sources */,
 				5017038228FBF06400E7427B /* CalendarCollectionView.swift in Sources */,
 				509D493128EC96B10052A8F2 /* SceneDelegate.swift in Sources */,

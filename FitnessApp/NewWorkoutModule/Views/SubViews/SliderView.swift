@@ -82,7 +82,7 @@ class SliderView: UIView {
     @objc private func sliderChanged() {
 //        numberLabel.text = "\(Int(slider.value))"
         let intValueSlider = Int(slider.value)
-        numberLabel.text = sliderType == .timer ? intValueSlider.getTimerFromSeconds() : "\(Int(slider.value))"
+        numberLabel.text = sliderType == .timer ? intValueSlider.getTimeFromSeconds() : "\(Int(slider.value))"
         guard let type = sliderType else { return }
         delegate?.changeValue(type: type, value: intValueSlider)
     }

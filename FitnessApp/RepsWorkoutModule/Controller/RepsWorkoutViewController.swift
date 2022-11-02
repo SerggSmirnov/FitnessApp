@@ -24,7 +24,7 @@ class RepsWorkoutViewController: UIViewController {
     }()
     
     private let detailsLabel = UILabel(text: "Details")
-    private let workoutParametersView = WorkoutParametersView()
+    private let workoutParametersView = RepsWorkoutParametersView()
     private lazy var finishButton = GreenButton(text: "FINISH")
     
     private var workoutModel = WorkoutModel()
@@ -82,7 +82,7 @@ class RepsWorkoutViewController: UIViewController {
 
 extension RepsWorkoutViewController: NextSetProtocol {
     func editingTapped() {
-        customAlert.presentCustomAlert(viewCotroller: self, repsOrTimer: "Reps") { [weak self] sets, reps in
+        customAlert.presentCustomAlert(viewController: self, repsOrTimer: "Reps") { [weak self] sets, reps in
             guard let self = self else { return }
             if sets != "" && reps != "" {
                 guard let numberOfSets = Int(sets),

@@ -1,19 +1,19 @@
 //
-//  WorkoutParametersView.swift
+//  TimerWorkoutParametersView.swift
 //  FitnessApp
 //
-//  Created by Сергей Смирнов on 29.10.2022.
+//  Created by Сергей Смирнов on 01.11.2022.
 //
 
 import UIKit
 
-protocol NextSetProtocol: AnyObject {
-    func nextSetTapped()
-    func editingTapped()
+protocol NextSetTimerProtocol: AnyObject {
+    func nextSetTimerTapped()
+    func editingTimerTapped()
 }
 
-class WorkoutParametersView: UIView {
-    
+class TimerWorkoutParametersView: UIView {
+
     private let workoutNameLabel = UILabel(text: "Name",
                                           font: .robotoMedium24(),
                                           textColor: .specialGray)
@@ -33,11 +33,11 @@ class WorkoutParametersView: UIView {
         return view
     }()
 
-    private let repsLabel = UILabel(text: "Reps",
+    private let timerLabel = UILabel(text: "Time of set",
                                           font: .robotoMedium18(),
                                           textColor: .specialGray)
     
-    private let numberOfRepsLabel = UILabel(text: "20",
+    private let numberOfTimerLabel = UILabel(text: "20",
                                           font: .robotoMedium24(),
                                           textColor: .specialGray)
 
@@ -71,23 +71,20 @@ class WorkoutParametersView: UIView {
         return button
     }()
     
-    private var repsStackView = UIStackView()
-    private var setsStackView = UIStackView()
+    var timerStackView = UIStackView()
+    var setsStackView = UIStackView()
     
-    weak var cellNextSetDelegate: NextSetProtocol?
+    weak var cellNextSetTimerDelegate: NextSetTimerProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
         setConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     private func setupViews() {
         backgroundColor = .specialLightBrown
@@ -100,34 +97,38 @@ class WorkoutParametersView: UIView {
         setsStackView = UIStackView(arrangedSubviews: [setsLabel, numberOfSetsLabel],
                                     axis: .horizontal,
                                     spacing: 10)
+        setsStackView.distribution = .equalSpacing
         addSubview(setsStackView)
         addSubview(setsLineView)
  
-        repsStackView = UIStackView(arrangedSubviews: [repsLabel, numberOfRepsLabel],
+        timerStackView = UIStackView(arrangedSubviews: [timerLabel, numberOfTimerLabel],
                                     axis: .horizontal,
                                     spacing: 10)
-        addSubview(repsStackView)
+        timerStackView.distribution = .equalSpacing
+        addSubview(timerStackView)
         addSubview(repsLineView)
         addSubview(editingButton)
         addSubview(nextSetsButton)
     }
     
     @objc private func editingButtonTapped() {
-        cellNextSetDelegate?.editingTapped()
+        cellNextSetTimerDelegate?.editingTimerTapped()
     }
     
     @objc private func nextSetsButtonTapped() {
-        cellNextSetDelegate?.nextSetTapped()
+        cellNextSetTimerDelegate?.nextSetTimerTapped()
     }
     
     public func refreshLabels(model: WorkoutModel, numberOfSet: Int) {
         workoutNameLabel.text = model.workoutName
         numberOfSetsLabel.text = "\(numberOfSet)/\(model.workoutSets)"
-        numberOfRepsLabel.text = "\(model.workoutReps)"
+        numberOfTimerLabel.text = "\(model.workoutTimer.getTimeFromSeconds())"
     }
-}
-
-extension WorkoutParametersView {
+    
+    public func buttonsIsEnable(_ value: Bool) {
+        editingButton.isEnabled = value
+        nextSetsButton.isEnabled = value
+    }
     
     private func setConstraints() {
         
@@ -146,12 +147,12 @@ extension WorkoutParametersView {
             setsLineView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             setsLineView.heightAnchor.constraint(equalToConstant: 1),
    
-            repsStackView.topAnchor.constraint(equalTo: setsLineView.bottomAnchor, constant: 20),
-            repsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            repsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            repsStackView.heightAnchor.constraint(equalToConstant: 25),
+            timerStackView.topAnchor.constraint(equalTo: setsLineView.bottomAnchor, constant: 20),
+            timerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            timerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            timerStackView.heightAnchor.constraint(equalToConstant: 25),
  
-            repsLineView.topAnchor.constraint(equalTo: repsStackView.bottomAnchor, constant: 2),
+            repsLineView.topAnchor.constraint(equalTo: timerStackView.bottomAnchor, constant: 2),
             repsLineView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             repsLineView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             repsLineView.heightAnchor.constraint(equalToConstant: 1),

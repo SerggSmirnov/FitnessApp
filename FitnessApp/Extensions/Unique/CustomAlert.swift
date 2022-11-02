@@ -32,13 +32,13 @@ class CustomAlert {
     
     private var buttomAction: ((String, String) -> Void)?
     
-    func presentCustomAlert(viewCotroller: UIViewController,
+    func presentCustomAlert(viewController: UIViewController,
                             repsOrTimer: String,
                             completion: @escaping (String, String) -> Void) {
         
         registerForKeyboardNotification()
         
-        guard let parentView = viewCotroller.view else { return }
+        guard let parentView = viewController.view else { return }
         mainView = parentView
         
         scrollView.frame = parentView.frame
