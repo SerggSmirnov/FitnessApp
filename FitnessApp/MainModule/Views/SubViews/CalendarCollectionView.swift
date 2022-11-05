@@ -28,7 +28,7 @@ class CalendarCollectionView: UICollectionView {
     
     weak var calendarDelegate: CalendarViewProtocol?
     
-    private let  collectionLayot = UICollectionViewFlowLayout()
+    private let collectionLayot = UICollectionViewFlowLayout()
     private let idCalendarCell = "idCalendarCell"
     
     private func setupLayout() {

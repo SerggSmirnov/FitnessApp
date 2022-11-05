@@ -40,6 +40,8 @@
 		50A4D10528F9357A00234A33 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D10128F9357A00234A33 /* CloseButton.swift */; };
 		50A4D10628F9357A00234A33 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D10228F9357A00234A33 /* GreenButton.swift */; };
 		50A4D10928F9532100234A33 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A4D10828F9532100234A33 /* SliderView.swift */; };
+		50CA64232916A4550083A398 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA64222916A4550083A398 /* ProfileViewController.swift */; };
+		50CA64252916A9740083A398 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA64242916A9740083A398 /* ProfileView.swift */; };
 		50E0F95B29119442007606CF /* TimerWorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */; };
 		50EC503F28ECBB3400559577 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC503E28ECBB3400559577 /* WeatherView.swift */; };
 		50EC506E28F1B8A900559577 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */; };
@@ -89,6 +91,8 @@
 		50A4D10128F9357A00234A33 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		50A4D10228F9357A00234A33 /* GreenButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		50A4D10828F9532100234A33 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		50CA64222916A4550083A398 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		50CA64242916A9740083A398 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorkoutParametersView.swift; sourceTree = "<group>"; };
 		50EC503E28ECBB3400559577 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				501293FA28F5F2C300A24EA0 /* NavigationModule */,
 				501293FB28F5F2D500A24EA0 /* MainModule */,
 				501293FF28F5F35200A24EA0 /* StatisticsModule */,
+				50CA641F2916A3D00083A398 /* ProfileModule */,
 				5012940328F5F3EA00A24EA0 /* NewWorkoutModule */,
 				5092825A29005F92005E2C72 /* RepsWorkoutModule */,
 				50E0F95729119087007606CF /* TimerWorkoutModule */,
@@ -381,6 +386,31 @@
 				50A4D10828F9532100234A33 /* SliderView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		50CA641F2916A3D00083A398 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				50CA64202916A3FB0083A398 /* Views */,
+				50CA64212916A4080083A398 /* Controllers */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		50CA64202916A3FB0083A398 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50CA64242916A9740083A398 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		50CA64212916A4080083A398 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				50CA64222916A4550083A398 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		50E0F95729119087007606CF /* TimerWorkoutModule */ = {
@@ -579,6 +609,7 @@
 				509282642903E552005E2C72 /* UIViewController + Extension.swift in Sources */,
 				50A4D10528F9357A00234A33 /* CloseButton.swift in Sources */,
 				50EC507D28F2BD2900559577 /* WorkoutTableViewCell.swift in Sources */,
+				50CA64252916A9740083A398 /* ProfileView.swift in Sources */,
 				50EC507B28F2B44400559577 /* MainTableView.swift in Sources */,
 				5092825928FF2C65005E2C72 /* RealmManager.swift in Sources */,
 				509D494828ECAA800052A8F2 /* CalendarView.swift in Sources */,
@@ -588,6 +619,7 @@
 				50A4D0FD28F871AE00234A33 /* NameView.swift in Sources */,
 				501293F928F5F05300A24EA0 /* NewWorkoutViewController.swift in Sources */,
 				50A157CA290D235E00372244 /* RepsWorkoutParametersView.swift in Sources */,
+				50CA64232916A4550083A398 /* ProfileViewController.swift in Sources */,
 				5017038B28FF1D5E00E7427B /* WorkoutModel.swift in Sources */,
 				50A4D0FB28F73D0700234A33 /* RepsOrTimerView.swift in Sources */,
 				501293F728F5E3C000A24EA0 /* MainTabBarController.swift in Sources */,
