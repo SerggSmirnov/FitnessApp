@@ -43,6 +43,7 @@ class ProfileView: UIView {
         view.backgroundColor = .specialGreen
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.addShadowOnView()
         return view
     }()
     
@@ -76,15 +77,16 @@ class ProfileView: UIView {
         return label
     }()
     
-    private lazy var  editingButton: UIButton = {
+    private lazy var editingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "threeDots")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.setTitle("Editing", for: .normal)
+        button.setTitle("Editing ", for: .normal)
         button.tintColor = .specialGreen
         button.titleLabel?.font = .robotoBold16()
         button.semanticContentAttribute = .forceRightToLeft
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(editingButtonTapped), for: .touchUpInside)
+        //TODO: - Fix button does'nt tapped
         return button
     }()
     
@@ -137,7 +139,7 @@ extension ProfileView {
             weightLabel.leadingAnchor.constraint(equalTo: heightLabel.trailingAnchor, constant: 15),
             
             editingButton.centerYAnchor.constraint(equalTo: heightLabel.centerYAnchor),
-            editingButton.trailingAnchor.constraint(equalTo: greenView.trailingAnchor)
+            editingButton.trailingAnchor.constraint(equalTo: greenView.trailingAnchor, constant: 0)
         ])
     }
 }

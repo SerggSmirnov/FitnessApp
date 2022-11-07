@@ -48,7 +48,7 @@ class RepsWorkoutParametersView: UIView {
         return view
     }()
     
-    private lazy var  editingButton: UIButton = {
+    private lazy var editingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "pencil")?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle("Editing", for: .normal)
@@ -92,6 +92,7 @@ class RepsWorkoutParametersView: UIView {
     private func setupViews() {
         backgroundColor = .specialLightBrown
         layer.cornerRadius = 10
+        addShadowOnView()
         translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(workoutNameLabel)
