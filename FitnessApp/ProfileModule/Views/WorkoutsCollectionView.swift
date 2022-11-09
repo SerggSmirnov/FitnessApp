@@ -26,7 +26,6 @@ class WorkoutsCollectionView: UICollectionView {
     private let spacing: CGFloat = 14.0
     
     private func setupLayout() {
-        collectionLayot.minimumInteritemSpacing = spacing
         collectionLayot.scrollDirection = .horizontal
         collectionLayot.collectionView?.showsHorizontalScrollIndicator = false
     }

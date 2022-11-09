@@ -77,16 +77,15 @@ class ProfileView: UIView {
         return label
     }()
     
-    private lazy var editingButton: UIButton = {
+    lazy var editingButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "threeDots")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(named: "threeDots"), for: .normal)
         button.setTitle("Editing ", for: .normal)
         button.tintColor = .specialGreen
         button.titleLabel?.font = .robotoBold16()
         button.semanticContentAttribute = .forceRightToLeft
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(editingButtonTapped), for: .touchUpInside)
-        //TODO: - Fix button does'nt tapped
         return button
     }()
     
@@ -103,7 +102,7 @@ class ProfileView: UIView {
         self.addSubview(editingButton)
     }
     
-    @objc private func editingButtonTapped() {
+    @objc func editingButtonTapped() {
        print("editingButtonTapped")
     }
 }
