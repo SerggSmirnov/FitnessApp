@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
         imageView.backgroundColor = .specialLine
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 5
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -81,6 +82,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         selectItem(date: Date().localDate())
+        setupUserParameters()
     }
 
     override func viewDidLoad() {
@@ -119,7 +121,7 @@ class MainViewController: UIViewController {
         let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutRepeat = true")
         let predicateUnrepeat = NSPredicate(format: "workoutRepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
         let compound = NSCompoundPredicate(type: .or, subpredicates: [predicateRepeat, predicateUnrepeat])
-        let resultArray = RealmManager.shared.getResultWorkoutModel()
+        let resultArray = RealmManager.shared.getResultsWorkoutModel()
         let filtredArray = resultArray.filter(compound).sorted(byKeyPath: "workoutName")
         workoutArray = filtredArray.map{$0}
     }
@@ -133,7 +135,22 @@ class MainViewController: UIViewController {
             tableView.isHidden = false
         }
     }
-
+    
+    private func setupUserParameters() {
+        
+        let userArray = RealmManager.shared.getResultsUserModel()
+        
+        if userArray.count != 0 {
+            userNameLabel.text = userArray[0].userFirstName + " " + userArray[0].userSecondName
+           
+            
+            guard let data = userArray[0].userImage,
+                  let image = UIImage(data: data) else {
+                return
+            }
+            userPhotoImageView.image = image
+        }
+    }
 }
 
 //MARK: - CalendarViewProtocol

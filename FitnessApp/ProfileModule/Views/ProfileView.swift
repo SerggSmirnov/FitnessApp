@@ -14,6 +14,7 @@ class ProfileView: UIView {
         
         setupViews()
         setConstraints()
+        setupUserParameters()
     }
     
     required init?(coder: NSCoder) {
@@ -34,6 +35,7 @@ class ProfileView: UIView {
         imageView.backgroundColor = .specialLine
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 5
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -77,7 +79,7 @@ class ProfileView: UIView {
         return label
     }()
     
-    lazy var editingButton: UIButton = {
+    private lazy var editingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "threeDots"), for: .normal)
         button.setTitle("Editing ", for: .normal)
@@ -102,8 +104,32 @@ class ProfileView: UIView {
         self.addSubview(editingButton)
     }
     
-    @objc func editingButtonTapped() {
-       print("editingButtonTapped")
+    @objc private func editingButtonTapped() {
+       let settingsVC = SettingsViewController()
+        settingsVC.modalPresentationStyle = .fullScreen
+        if let vc = self.next(ofType: UIViewController.self) {
+            vc.present(settingsVC, animated: true)
+        }
+        
+    }
+    
+    public func setupUserParameters() {
+        
+        let userArray = RealmManager.shared.getResultsUserModel()
+        
+        if userArray.count != 0 {
+            nameLabel.text = userArray[0].userFirstName + " " + userArray[0].userSecondName
+            heightLabel.text = "Height: \(userArray[0].userHeight)"
+            weightLabel.text = "Weight: \(userArray[0].userWeight)"
+//            targetLabel.text = "TARGET: \(userArray[0].userTarget)"
+//            workoutsTargetLabel.text = "\(userArray[0].userTarget)"
+            
+            guard let data = userArray[0].userImage,
+                  let image = UIImage(data: data) else {
+                return
+            }
+            userPhotoImageView.image = image
+        }
     }
 }
 

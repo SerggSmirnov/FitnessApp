@@ -44,7 +44,10 @@
 		50CA64252916A9740083A398 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA64242916A9740083A398 /* ProfileView.swift */; };
 		50CCA9EE2917B2EB00CA29F2 /* WorkoutsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9ED2917B2EB00CA29F2 /* WorkoutsCollectionView.swift */; };
 		50CCA9F12918F22B00CA29F2 /* WorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F02918F22B00CA29F2 /* WorkoutCollectionViewCell.swift */; };
-		50CCA9F52919556100CA29F2 /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F42919556100CA29F2 /* EditingProfileViewController.swift */; };
+		50CCA9F52919556100CA29F2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F42919556100CA29F2 /* SettingsViewController.swift */; };
+		50CCA9F8291D750200CA29F2 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F7291D750200CA29F2 /* UIResponder + Extension.swift */; };
+		50CCA9FA291D774500CA29F2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F9291D774500CA29F2 /* UserModel.swift */; };
+		50CCA9FD291FCA3B00CA29F2 /* ResultWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9FC291FCA3B00CA29F2 /* ResultWorkout.swift */; };
 		50E0F95B29119442007606CF /* TimerWorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */; };
 		50EC503F28ECBB3400559577 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC503E28ECBB3400559577 /* WeatherView.swift */; };
 		50EC506E28F1B8A900559577 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */; };
@@ -98,7 +101,10 @@
 		50CA64242916A9740083A398 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		50CCA9ED2917B2EB00CA29F2 /* WorkoutsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsCollectionView.swift; sourceTree = "<group>"; };
 		50CCA9F02918F22B00CA29F2 /* WorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
-		50CCA9F42919556100CA29F2 /* EditingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
+		50CCA9F42919556100CA29F2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		50CCA9F7291D750200CA29F2 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
+		50CCA9F9291D774500CA29F2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		50CCA9FC291FCA3B00CA29F2 /* ResultWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWorkout.swift; sourceTree = "<group>"; };
 		50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorkoutParametersView.swift; sourceTree = "<group>"; };
 		50EC503E28ECBB3400559577 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				5017038A28FF1D5E00E7427B /* WorkoutModel.swift */,
+				50CCA9F9291D774500CA29F2 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,7 +338,7 @@
 				5092825A29005F92005E2C72 /* RepsWorkoutModule */,
 				50E0F95729119087007606CF /* TimerWorkoutModule */,
 				50CA641F2916A3D00083A398 /* ProfileModule */,
-				50CCA9F22919553600CA29F2 /* EditingProfileViewController */,
+				50CCA9F22919553600CA29F2 /* SettingsModule */,
 				509D494428EC9B430052A8F2 /* Model */,
 				50EC506A28F1B86200559577 /* Extensions */,
 				5017039128FF2B8900E7427B /* Service */,
@@ -398,6 +405,7 @@
 		50CA641F2916A3D00083A398 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				50CCA9FB291FC9D900CA29F2 /* Model */,
 				50CA64202916A3FB0083A398 /* Views */,
 				50CA64212916A4080083A398 /* Controllers */,
 			);
@@ -430,20 +438,28 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		50CCA9F22919553600CA29F2 /* EditingProfileViewController */ = {
+		50CCA9F22919553600CA29F2 /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
 				50CCA9F32919555100CA29F2 /* Controllers */,
 			);
-			path = EditingProfileViewController;
+			path = SettingsModule;
 			sourceTree = "<group>";
 		};
 		50CCA9F32919555100CA29F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				50CCA9F42919556100CA29F2 /* EditingProfileViewController.swift */,
+				50CCA9F42919556100CA29F2 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		50CCA9FB291FC9D900CA29F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50CCA9FC291FCA3B00CA29F2 /* ResultWorkout.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		50E0F95729119087007606CF /* TimerWorkoutModule */ = {
@@ -500,6 +516,7 @@
 				5012940628F5F7A800A24EA0 /* UILabel + Extensions.swift */,
 				5017038F28FF296E00E7427B /* Date.swift */,
 				509282632903E552005E2C72 /* UIViewController + Extension.swift */,
+				50CCA9F7291D750200CA29F2 /* UIResponder + Extension.swift */,
 			);
 			path = UIkit;
 			sourceTree = "<group>";
@@ -637,6 +654,7 @@
 				5092825C2900600D005E2C72 /* RepsWorkoutViewController.swift in Sources */,
 				501293F328F2F80E00A24EA0 /* StatisticsTableView.swift in Sources */,
 				509D493328EC96B10052A8F2 /* MainViewController.swift in Sources */,
+				50CCA9FA291D774500CA29F2 /* UserModel.swift in Sources */,
 				5092826C29058FC7005E2C72 /* TimerWorkoutViewController.swift in Sources */,
 				509D492F28EC96B10052A8F2 /* AppDelegate.swift in Sources */,
 				509282642903E552005E2C72 /* UIViewController + Extension.swift in Sources */,
@@ -646,11 +664,12 @@
 				50EC507B28F2B44400559577 /* MainTableView.swift in Sources */,
 				5092825928FF2C65005E2C72 /* RealmManager.swift in Sources */,
 				509D494828ECAA800052A8F2 /* CalendarView.swift in Sources */,
+				50CCA9F8291D750200CA29F2 /* UIResponder + Extension.swift in Sources */,
 				50EC507F28F2C06000559577 /* UIStackView + Extensions.swift in Sources */,
 				501293F128F2EEEF00A24EA0 /* StatisticsViewController.swift in Sources */,
 				50A4D10328F9357A00234A33 /* GreenSlider.swift in Sources */,
 				50A4D0FD28F871AE00234A33 /* NameView.swift in Sources */,
-				50CCA9F52919556100CA29F2 /* EditingProfileViewController.swift in Sources */,
+				50CCA9F52919556100CA29F2 /* SettingsViewController.swift in Sources */,
 				501293F928F5F05300A24EA0 /* NewWorkoutViewController.swift in Sources */,
 				50A157CA290D235E00372244 /* RepsWorkoutParametersView.swift in Sources */,
 				50CA64232916A4550083A398 /* ProfileViewController.swift in Sources */,
@@ -668,6 +687,7 @@
 				50CCA9F12918F22B00CA29F2 /* WorkoutCollectionViewCell.swift in Sources */,
 				50928271290B0169005E2C72 /* DifferenceWorkout.swift in Sources */,
 				50A4D10628F9357A00234A33 /* GreenButton.swift in Sources */,
+				50CCA9FD291FCA3B00CA29F2 /* ResultWorkout.swift in Sources */,
 				5017039028FF296E00E7427B /* Date.swift in Sources */,
 				50A4D0F928F73CEE00234A33 /* DateAndRepeatView.swift in Sources */,
 				50CCA9EE2917B2EB00CA29F2 /* WorkoutsCollectionView.swift in Sources */,

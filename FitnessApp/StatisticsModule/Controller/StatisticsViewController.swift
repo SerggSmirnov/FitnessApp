@@ -97,7 +97,7 @@ class StatisticsViewController: UIViewController {
     private func getWorkoutsName() -> [String] {
         var nameArray = [String]()
         
-        let allWorkout = RealmManager.shared.getResultWorkoutModel()
+        let allWorkout = RealmManager.shared.getResultsWorkoutModel()
         
         for workoutModel in allWorkout {
             if !nameArray.contains(workoutModel.workoutName) {
@@ -110,7 +110,7 @@ class StatisticsViewController: UIViewController {
     private func getDifferenceModel(dateStart: Date) {
         let dateEnd = Date().localDate()
         let nameArray = getWorkoutsName()
-        let allWorkouts = RealmManager.shared.getResultWorkoutModel()
+        let allWorkouts = RealmManager.shared.getResultsWorkoutModel()
         
         for name in nameArray {
             let predicateDifference = NSPredicate(format: "workoutName = '\(name)' AND workoutDate BETWEEN %@", [dateStart, dateEnd])

@@ -54,6 +54,15 @@ class WorkoutCollectionViewCell: UICollectionViewCell {
     
     private var stackView = UIStackView()
     
+    public func configure(model: ResultWorkout) {
+        nameExerciseLabel.text = model.name
+        numberLabel.text = "\(model.result)"
+        
+//        guard let data = model.imageData else { return }
+//        let image = UIImage(data: data)
+//        workoutImageView.image = image
+    }
+    
     private func setupViews() {
         self.layer.cornerRadius = 20
         

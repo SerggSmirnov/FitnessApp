@@ -11,11 +11,11 @@ class ProfileViewController: UIViewController {
     
     private let profileView = ProfileView()
     private let workoutsCollectionView = WorkoutsCollectionView()
-    private let targetLabel = UILabel(text: "TARGET: 20 workouts",
+    public let targetLabel = UILabel(text: "TARGET: 20 workouts",
                                       font: .robotoBold16(),
                                       textColor: .specialGray)
     
-    private let progressView: UIProgressView = {
+    public let progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
         progressView.trackTintColor = .specialLightBrown
         progressView.progressTintColor = .specialGreen
@@ -45,6 +45,16 @@ class ProfileViewController: UIViewController {
         profileView.userPhotoImageView.layer.cornerRadius = profileView.userPhotoImageView.frame.width / 2
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        workoutsCollectionView.resultWorkout = [ResultWorkout]()
+        getWorkoutResults()
+        workoutsCollectionView.reloadData()
+        profileView.setupUserParameters()
+        setupUserParameters()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +75,49 @@ class ProfileViewController: UIViewController {
         view.addSubview(targetView)
         
         view.addSubview(progressView)
+    }
+    
+    private func getWorkoutsName() -> [String] {
+        var nameArray = [String]()
+        
+        let allWorkout = RealmManager.shared.getResultsWorkoutModel()
+        
+        for workoutModel in allWorkout {
+            if !nameArray.contains(workoutModel.workoutName) {
+                nameArray.append(workoutModel.workoutName)
+            }
+        }
+        return nameArray
+    }
+    
+    private func getWorkoutResults() {
+        
+        let nameArray = getWorkoutsName()
+        let workoutArray = RealmManager.shared.getResultsWorkoutModel()
+        
+        for name in nameArray {
+            let predicateName = NSPredicate(format: "workoutName = '\(name)'")
+            let filtredArray = workoutArray.filter(predicateName).sorted(byKeyPath: "workoutName")
+            var result = 0
+            var image: Data?
+            filtredArray.forEach { model in
+                result += model.workoutReps
+                image = model.workoutImage
+            }
+            let resultModel = ResultWorkout(name: name, result: result, imageData: image)
+            workoutsCollectionView.resultWorkout.append(resultModel)
+        }
+    }
+    
+    private func setupUserParameters() {
+        
+        let userArray = RealmManager.shared.getResultsUserModel()
+        
+        if userArray.count != 0 {
+            targetLabel.text = "TARGET: \(userArray[0].userTarget)"
+            workoutsTargetLabel.text = "\(userArray[0].userTarget)"
+            
+        }
     }
 }
 

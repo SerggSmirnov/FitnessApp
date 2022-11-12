@@ -25,6 +25,8 @@ class WorkoutsCollectionView: UICollectionView {
     private let idWorkoutCell = "idWorkoutCell"
     private let spacing: CGFloat = 14.0
     
+    public var resultWorkout = [ResultWorkout]()
+    
     private func setupLayout() {
         collectionLayot.scrollDirection = .horizontal
         collectionLayot.collectionView?.showsHorizontalScrollIndicator = false
@@ -40,18 +42,21 @@ class WorkoutsCollectionView: UICollectionView {
         self.dataSource = self
         self.delegate = self
     }
+    
+    
 }
 
 //MARK: - UICollectionViewDataSource
 
 extension WorkoutsCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        resultWorkout.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idWorkoutCell, for: indexPath) as? WorkoutCollectionViewCell else { return UICollectionViewCell() }
-        
+        let model = resultWorkout[indexPath.row]
+        cell.configure(model: model)
         cell.backgroundColor = (indexPath.row % 4 == 0 || indexPath.row % 4 == 3) ? .specialGreen : .specialDarkYellow
         
         return cell
