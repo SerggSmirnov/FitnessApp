@@ -86,6 +86,7 @@ class NewWorkoutViewController: UIViewController {
             (workoutModel.workoutReps != 0 || workoutModel.workoutTimer != 0) {
             RealmManager.shared.saveWorkoutModel(workoutModel)
             print(workoutModel)
+            createNotification()
             workoutModel = WorkoutModel()
             presentSimpleAlert(title: "Success", message: "Your workout saved")
             resetValues()
@@ -113,6 +114,12 @@ class NewWorkoutViewController: UIViewController {
     
     @objc private func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    private func createNotification() {
+        let notification = Notifications()
+        let stringDate = workoutModel.workoutDate.ddMMyyyyFromDate()
+        notification.scheduleDateNotification(date: workoutModel.workoutDate, id: "workout" + stringDate)
     }
 }
 

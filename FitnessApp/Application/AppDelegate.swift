@@ -10,10 +10,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let notification = Notifications()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        notification.requestAutorization()
+        notification.notificationCenter.delegate = notification
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
 

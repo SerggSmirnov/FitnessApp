@@ -48,6 +48,7 @@
 		50CCA9F8291D750200CA29F2 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F7291D750200CA29F2 /* UIResponder + Extension.swift */; };
 		50CCA9FA291D774500CA29F2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9F9291D774500CA29F2 /* UserModel.swift */; };
 		50CCA9FD291FCA3B00CA29F2 /* ResultWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9FC291FCA3B00CA29F2 /* ResultWorkout.swift */; };
+		50CCA9FF2920BE2A00CA29F2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CCA9FE2920BE2A00CA29F2 /* Notifications.swift */; };
 		50E0F95B29119442007606CF /* TimerWorkoutParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */; };
 		50EC503F28ECBB3400559577 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC503E28ECBB3400559577 /* WeatherView.swift */; };
 		50EC506E28F1B8A900559577 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */; };
@@ -105,6 +106,7 @@
 		50CCA9F7291D750200CA29F2 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
 		50CCA9F9291D774500CA29F2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		50CCA9FC291FCA3B00CA29F2 /* ResultWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWorkout.swift; sourceTree = "<group>"; };
+		50CCA9FE2920BE2A00CA29F2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		50E0F95A29119442007606CF /* TimerWorkoutParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorkoutParametersView.swift; sourceTree = "<group>"; };
 		50EC503E28ECBB3400559577 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		50EC506C28F1B8A900559577 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				509D492E28EC96B10052A8F2 /* AppDelegate.swift */,
 				509D493028EC96B10052A8F2 /* SceneDelegate.swift */,
+				50CCA9FE2920BE2A00CA29F2 /* Notifications.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 		50EC506A28F1B86200559577 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5017038F28FF296E00E7427B /* Date.swift */,
 				5017038728FDD7C100E7427B /* Int + Extensions.swift */,
 				50A4D0FE28F879F500234A33 /* Unique */,
 				50EC507028F1B9D800559577 /* UIkit */,
@@ -514,7 +518,6 @@
 				50EC507528F1D5A800559577 /* UIColor + Extensions.swift */,
 				50EC507E28F2C06000559577 /* UIStackView + Extensions.swift */,
 				5012940628F5F7A800A24EA0 /* UILabel + Extensions.swift */,
-				5017038F28FF296E00E7427B /* Date.swift */,
 				509282632903E552005E2C72 /* UIViewController + Extension.swift */,
 				50CCA9F7291D750200CA29F2 /* UIResponder + Extension.swift */,
 			);
@@ -670,6 +673,7 @@
 				50A4D10328F9357A00234A33 /* GreenSlider.swift in Sources */,
 				50A4D0FD28F871AE00234A33 /* NameView.swift in Sources */,
 				50CCA9F52919556100CA29F2 /* SettingsViewController.swift in Sources */,
+				50CCA9FF2920BE2A00CA29F2 /* Notifications.swift in Sources */,
 				501293F928F5F05300A24EA0 /* NewWorkoutViewController.swift in Sources */,
 				50A157CA290D235E00372244 /* RepsWorkoutParametersView.swift in Sources */,
 				50CA64232916A4550083A398 /* ProfileViewController.swift in Sources */,
