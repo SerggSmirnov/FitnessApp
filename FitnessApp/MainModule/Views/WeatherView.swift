@@ -57,6 +57,24 @@ class WeatherView: UIView {
         self.addSubview(weatherDiscriptionLabel)
         self.addSubview(weatherLogoImageView)
     }
+    
+    public func updateImage(data: Data) {
+        guard let image = UIImage(data: data) else { return }
+        weatherLogoImageView.image = image
+    }
+    
+    public func updateLabels(model: WeatherModel) {
+        weatherStatusLabel.text = model.weather[0].weatherDescription + ", \(model.main.temp)C°"
+        
+        switch model.weather[0].weatherDescription {
+        case "overcast clouds":
+            weatherDiscriptionLabel.text = "Better stay home"
+        case "broken clouds":
+            weatherDiscriptionLabel.text = "Better stay home"
+        default:
+            weatherDiscriptionLabel.text = "This case not found"
+        }
+    }
 }
 
 extension WeatherView {
